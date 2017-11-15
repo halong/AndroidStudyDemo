@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.halong.myapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".fragment.FragmentActivity" />
+
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver android:name=".broadcast.MyReceiver" />
+
+        <provider
+            android:name=".content.MyProvider"
+            android:authorities="com.example.halong.myapplication.content.MyProvider" />
+
+        <activity android:name=".broadcast.BroadcastActivity" />
+        <activity android:name=".service.ServiceActivity" />
+        <activity android:name=".content.ContentActivity" />
+        <activity android:name=".OkHttp.OkhttpActivity" />
+        <activity android:name=".pulltorefresh.PulltorefreshActivity" />
+        <activity android:name=".database.DatabaseActivity" />
+        <activity android:name=".mvp.MvpActivity" />
+        <activity android:name=".eventbus.EventbusActivity" />
+        <activity android:name=".DrawerLayout.DrawerLayoutActivity" />
+        <activity android:name=".TabViewPager.TabViewPagerActivity" />
+        <activity android:name=".Notification.NotificationActivity" />
+        <activity android:name=".TabLayout.TabLayoutActivity" />
+        <activity android:name=".Dialog.DialogActivity" />
+        <activity android:name=".Gson.GsonDemoActivity" />
+        <activity android:name=".RecyclerView.RecyclerViewDemoActivity" />
+        <activity android:name=".CardView.CardViewDemoActivity" />
+        <activity android:name=".dagger2.DaggerActivity" />
+        <activity android:name=".nanohttpd.NanohttpdActivity" />
+        <activity
+            android:name=".TextInputLayout.TextInputLayoutActivity"
+            android:label="@string/title_activity_text_input_layout"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ActionBarDrawerToggle.ActionBarDrawerToggleActivity" />
+        <activity android:name=".pulltorefresh.RefreshActivity" />
+        <activity android:name=".SwipeRecyclerView.SwipeRecyclerActivity" />
+        <activity android:name=".OkHttpUtils.OkHttpUtilsActivity"></activity>
+    </application>
+
+</manifest>
