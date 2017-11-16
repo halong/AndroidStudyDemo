@@ -35,8 +35,6 @@ public class ActionBarDrawerToggleActivity extends AppCompatActivity {
 
         setSupportActionBar(mToolbar);
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer1, mToolbar, 0, 0);
         mDrawer1.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
