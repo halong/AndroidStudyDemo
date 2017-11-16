@@ -1,4 +1,4 @@
-package com.example.halong.myapplication.broadcast;
+package com.example.halong.myapplication.Broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,16 +11,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.halong.myapplication.R;
+import com.orhanobut.logger.Logger;
 
 public class BroadcastActivity extends AppCompatActivity implements View.OnClickListener {
 
-    /**
-     * send a broadcast.
-     */
     private Button mButton;
-    /**
-     * send another broadcast
-     */
     private Button mButton2;
 
     private BroadcastReceiver receiver;
@@ -53,7 +48,8 @@ public class BroadcastActivity extends AppCompatActivity implements View.OnClick
         receiver=new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Toast.makeText(context, intent.getAction(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "在activity注册的BroadcastReceiver", Toast.LENGTH_SHORT).show();
+                Logger.d("在activity注册的BroadcastReceiver");
             }
         };
     }

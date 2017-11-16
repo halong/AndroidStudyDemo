@@ -23,6 +23,7 @@ public class ActionBarDrawerToggleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_bar_drawer_toggle);
 
+        //设置状态栏透明  另在布局文件中需要设置fitsSystemWindows="ture"属性
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         initView();
@@ -33,8 +34,9 @@ public class ActionBarDrawerToggleActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mDrawer1 = (DrawerLayout) findViewById(R.id.drawer1);
 
+        //ActionBarDrawerToggle 要与Toolbar DrawerLayout配合使用
+        // 需要设置style/Theme.AppCompat.Light.NoActionBar
         setSupportActionBar(mToolbar);
-
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer1, mToolbar, 0, 0);
         mDrawer1.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();

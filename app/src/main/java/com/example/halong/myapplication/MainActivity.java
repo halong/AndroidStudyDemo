@@ -18,7 +18,7 @@ import com.example.halong.myapplication.RecyclerView.RecyclerViewDemoActivity;
 import com.example.halong.myapplication.TabLayout.TabLayoutActivity;
 import com.example.halong.myapplication.TabViewPager.TabViewPagerActivity;
 import com.example.halong.myapplication.TextInputLayout.TextInputLayoutActivity;
-import com.example.halong.myapplication.broadcast.BroadcastActivity;
+import com.example.halong.myapplication.Broadcast.BroadcastActivity;
 import com.example.halong.myapplication.content.ContentActivity;
 import com.example.halong.myapplication.dagger2.DaggerActivity;
 import com.example.halong.myapplication.database.DatabaseActivity;

@@ -22,18 +22,15 @@
         </activity>
         <activity android:name=".fragment.FragmentActivity" />
 
-        <service
-            android:name=".service.MyService"
-            android:enabled="true"
-            android:exported="true" />
+        <service android:name=".service.MyService" />
 
-        <receiver android:name=".broadcast.MyReceiver" />
+        <receiver android:name=".Broadcast.MyReceiver" />
 
         <provider
             android:name=".content.MyProvider"
             android:authorities="com.example.halong.myapplication.content.MyProvider" />
 
-        <activity android:name=".broadcast.BroadcastActivity" />
+        <activity android:name=".Broadcast.BroadcastActivity" />
         <activity android:name=".service.ServiceActivity" />
         <activity android:name=".content.ContentActivity" />
         <activity android:name=".OkHttp.OkhttpActivity" />
@@ -51,14 +48,12 @@
         <activity android:name=".CardView.CardViewDemoActivity" />
         <activity android:name=".dagger2.DaggerActivity" />
         <activity android:name=".nanohttpd.NanohttpdActivity" />
-        <activity
-            android:name=".TextInputLayout.TextInputLayoutActivity"
-            android:label="@string/title_activity_text_input_layout"
-            android:theme="@style/AppTheme" />
+        <activity android:name=".TextInputLayout.TextInputLayoutActivity" />
         <activity android:name=".ActionBarDrawerToggle.ActionBarDrawerToggleActivity" />
         <activity android:name=".pulltorefresh.RefreshActivity" />
         <activity android:name=".SwipeRecyclerView.SwipeRecyclerActivity" />
-        <activity android:name=".OkHttpUtils.OkHttpUtilsActivity"></activity>
+        <activity android:name=".OkHttpUtils.OkHttpUtilsActivity" />
+        <activity android:name=".Animation.AnimationActivity"/>
     </application>
 
 </manifest>

@@ -14,6 +14,11 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Logger.addLogAdapter(new AndroidLogAdapter());
+        Logger.addLogAdapter(new AndroidLogAdapter(){
+            @Override
+            public boolean isLoggable(int priority, String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
     }
 }
