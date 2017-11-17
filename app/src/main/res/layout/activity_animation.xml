@@ -9,20 +9,49 @@
     <Button
         android:id="@+id/btn_alph"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="AlphAnimation"
+        android:textAllCaps="false" />
+
     <Button
-        android:id="@+id/scale"
+        android:id="@+id/btn_scale"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="ScaleAnimation"
+        android:textAllCaps="false" />
+
     <Button
         android:id="@+id/btn_translate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="TranslateAnimation"
+        android:textAllCaps="false" />
+
     <Button
         android:id="@+id/btn_rotate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="RotateAnimation"
+        android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AnimationDrawable"
+        android:textAllCaps="false" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
 
 
 </LinearLayout>

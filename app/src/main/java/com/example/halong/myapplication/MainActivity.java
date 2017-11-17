@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.halong.myapplication.ActionBarDrawerToggle.ActionBarDrawerToggleActivity;
+import com.example.halong.myapplication.Animation.AnimationActivity;
 import com.example.halong.myapplication.CardView.CardViewDemoActivity;
 import com.example.halong.myapplication.Dialog.DialogActivity;
 import com.example.halong.myapplication.DrawerLayout.DrawerLayoutActivity;
@@ -18,7 +19,7 @@ import com.example.halong.myapplication.RecyclerView.RecyclerViewDemoActivity;
 import com.example.halong.myapplication.TabLayout.TabLayoutActivity;
 import com.example.halong.myapplication.TabViewPager.TabViewPagerActivity;
 import com.example.halong.myapplication.TextInputLayout.TextInputLayoutActivity;
-import com.example.halong.myapplication.Broadcast.BroadcastActivity;
+import com.example.halong.myapplication.broadcast.BroadcastActivity;
 import com.example.halong.myapplication.content.ContentActivity;
 import com.example.halong.myapplication.dagger2.DaggerActivity;
 import com.example.halong.myapplication.database.DatabaseActivity;
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         mButton15.setText("GsonDemoActivity");
         mButton16.setText("RecyclerViewDemoActivity");
         mButton17.setText("CardViewDemoActivity");
-        mButton18.setText("AnimationDemoActivity");
+        mButton18.setText("AnimationActivity");
         mButton19.setText("DaggerActivity");
         mButton20.setText("NanohttpdActivity");
         mButton21.setText("TextInputLayoutActivity");
@@ -187,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, CardViewDemoActivity.class));
                 break;
             case R.id.button18:
-//                startActivity(new Intent(this, AnimationDemoActivity.class));
+                startActivity(new Intent(this, AnimationActivity.class));
                 break;
             case R.id.button19:
                 startActivity(new Intent(this, DaggerActivity.class));

@@ -1,4 +1,4 @@
-package com.example.halong.myapplication.Broadcast;
+package com.example.halong.myapplication.broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
