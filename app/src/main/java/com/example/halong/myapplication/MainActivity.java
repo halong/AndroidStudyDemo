@@ -7,25 +7,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.halong.myapplication.ActionBarDrawerToggle.ActionBarDrawerToggleActivity;
+import com.example.halong.myapplication.actionbardrawertoggle.ActionBarDrawerToggleActivity;
 import com.example.halong.myapplication.animation.AnimationActivity;
-import com.example.halong.myapplication.CardView.CardViewDemoActivity;
-import com.example.halong.myapplication.Dialog.DialogActivity;
-import com.example.halong.myapplication.DrawerLayout.DrawerLayoutActivity;
-import com.example.halong.myapplication.Gson.GsonDemoActivity;
-import com.example.halong.myapplication.Notification.NotificationActivity;
-import com.example.halong.myapplication.OkHttpUtils.OkHttpUtilsActivity;
-import com.example.halong.myapplication.RecyclerView.RecyclerViewDemoActivity;
-import com.example.halong.myapplication.TabLayout.TabLayoutActivity;
-import com.example.halong.myapplication.TabViewPager.TabViewPagerActivity;
-import com.example.halong.myapplication.TextInputLayout.TextInputLayoutActivity;
+import com.example.halong.myapplication.cardview.CardViewDemoActivity;
+import com.example.halong.myapplication.dialog.DialogActivity;
+import com.example.halong.myapplication.drawerlayout.DrawerLayoutActivity;
+import com.example.halong.myapplication.gson.GsonDemoActivity;
+import com.example.halong.myapplication.notification.NotificationActivity;
+import com.example.halong.myapplication.okhttputils.OkHttpUtilsActivity;
+import com.example.halong.myapplication.recyclerview.RecyclerViewDemoActivity;
+import com.example.halong.myapplication.tablayout.TabLayoutActivity;
+import com.example.halong.myapplication.tabviewpager.TabViewPagerActivity;
+import com.example.halong.myapplication.textinputlayout.TextInputLayoutActivity;
 import com.example.halong.myapplication.broadcast.BroadcastActivity;
 import com.example.halong.myapplication.content.ContentActivity;
 import com.example.halong.myapplication.dagger2.DaggerActivity;
 import com.example.halong.myapplication.database.DatabaseActivity;
 import com.example.halong.myapplication.eventbus.EventbusActivity;
 import com.example.halong.myapplication.fragment.FragmentActivity;
-import com.example.halong.myapplication.OkHttp.OkhttpActivity;
+import com.example.halong.myapplication.okhttp.OkhttpActivity;
 import com.example.halong.myapplication.mvp.MvpActivity;
 import com.example.halong.myapplication.nanohttpd.NanohttpdActivity;
 import com.example.halong.myapplication.pulltorefresh.PulltorefreshActivity;
@@ -100,10 +100,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
         float density=getResources().getDisplayMetrics().density;
         float widthPixels=getResources().getDisplayMetrics().widthPixels;
-
         Log.d("==>",(int)(widthPixels/density+0.5f)+"");
 
         mButton1.setText("Fragment");

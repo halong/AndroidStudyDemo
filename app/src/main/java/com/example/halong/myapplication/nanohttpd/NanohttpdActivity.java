@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.halong.myapplication.OkHttp.OkHttpClientSingleton;
+import com.example.halong.myapplication.okhttp.OkHttpClientSingleton;
 import com.example.halong.myapplication.R;
 
 import org.greenrobot.eventbus.EventBus;
