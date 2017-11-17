@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.halong.myapplication.ActionBarDrawerToggle.ActionBarDrawerToggleActivity;
-import com.example.halong.myapplication.Animation.AnimationActivity;
+import com.example.halong.myapplication.animation.AnimationActivity;
 import com.example.halong.myapplication.CardView.CardViewDemoActivity;
 import com.example.halong.myapplication.Dialog.DialogActivity;
 import com.example.halong.myapplication.DrawerLayout.DrawerLayoutActivity;

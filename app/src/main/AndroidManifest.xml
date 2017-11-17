@@ -53,7 +53,7 @@
         <activity android:name=".pulltorefresh.RefreshActivity" />
         <activity android:name=".SwipeRecyclerView.SwipeRecyclerActivity" />
         <activity android:name=".OkHttpUtils.OkHttpUtilsActivity" />
-        <activity android:name=".Animation.AnimationActivity"/>
+        <activity android:name=".animation.AnimationActivity"/>
     </application>
 
 </manifest>
