@@ -1,20 +1,23 @@
 package com.example.halong.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.halong.myapplication.actionbardrawertoggle.ActionBarDrawerToggleActivity;
 import com.example.halong.myapplication.animation.AnimationActivity;
 import com.example.halong.myapplication.cardview.CardViewDemoActivity;
+import com.example.halong.myapplication.data.Data;
 import com.example.halong.myapplication.dialog.DialogActivity;
 import com.example.halong.myapplication.drawerlayout.DrawerLayoutActivity;
 import com.example.halong.myapplication.gson.GsonDemoActivity;
 import com.example.halong.myapplication.notification.NotificationActivity;
-import com.example.halong.myapplication.okhttputils.OkHttpUtilsActivity;
+import com.example.halong.myapplication.okhttputil.OkHttpUtilsActivity;
 import com.example.halong.myapplication.recyclerview.RecyclerViewDemoActivity;
 import com.example.halong.myapplication.tablayout.TabLayoutActivity;
 import com.example.halong.myapplication.tabviewpager.TabViewPagerActivity;
@@ -30,6 +33,7 @@ import com.example.halong.myapplication.mvp.MvpActivity;
 import com.example.halong.myapplication.nanohttpd.NanohttpdActivity;
 import com.example.halong.myapplication.pulltorefresh.PulltorefreshActivity;
 import com.example.halong.myapplication.service.ServiceActivity;
+import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -100,9 +104,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        float density=getResources().getDisplayMetrics().density;
-        float widthPixels=getResources().getDisplayMetrics().widthPixels;
-        Log.d("==>",(int)(widthPixels/density+0.5f)+"");
+
+        SharedPreferences sharedPreferences=getSharedPreferences("test", Context.MODE_PRIVATE);
+        if(sharedPreferences.getInt("width",0)==0){
+            DisplayMetrics displayMetrics=getResources().getDisplayMetrics();
+            float density=displayMetrics.density;
+            float widthPixels=displayMetrics.widthPixels;
+            int width=(int)(widthPixels/density+0.5f);
+
+            sharedPreferences.edit().putInt("width",width).commit();
+            Logger.d( Data.Width);
+        }else {
+            Data.Width=sharedPreferences.getInt("width",0);
+            Logger.d( Data.Width);
+        }
+
 
         mButton1.setText("Fragment");
         mButton2.setText("Broadcast");

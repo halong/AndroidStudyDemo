@@ -52,7 +52,7 @@
         <activity android:name=".actionbardrawertoggle.ActionBarDrawerToggleActivity" />
         <activity android:name=".pulltorefresh.RefreshActivity" />
         <activity android:name=".swiperecyclerview.SwipeRecyclerActivity" />
-        <activity android:name=".okhttputils.OkHttpUtilsActivity" />
+        <activity android:name=".okhttputil.OkHttpUtilsActivity" />
         <activity android:name=".animation.AnimationActivity"/>
     </application>
 

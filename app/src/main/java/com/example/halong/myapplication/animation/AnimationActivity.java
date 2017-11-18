@@ -4,8 +4,10 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
@@ -21,9 +23,6 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
     private Button mBtnTranslate;
     private Button mBtnRotate;
     private ImageView mImageView;
-    /**
-     * RotateAnimation
-     */
     private Button mBtnFrame;
 
     @Override
@@ -45,6 +44,8 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
         mImageView = (ImageView) findViewById(R.id.image_view);
         mBtnFrame = (Button) findViewById(R.id.btn_frame);
         mBtnFrame.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -55,13 +56,18 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
                 alphaAnimation.setDuration(2000);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setRepeatCount(3);
-                mImageView.startAnimation(alphaAnimation);
+
+                AnimationSet animationSet=new AnimationSet(false);
+                animationSet.addAnimation(alphaAnimation);
+
+                mImageView.startAnimation(animationSet);
                 break;
             case R.id.btn_scale:
                 ScaleAnimation scaleAnimation
                         = new ScaleAnimation(0f, 4f, 0f, 4f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
                 scaleAnimation.setDuration(2000);
                 scaleAnimation.setFillAfter(true);
+                scaleAnimation.setInterpolator(new AccelerateInterpolator());
                 mImageView.startAnimation(scaleAnimation);
                 break;
             case R.id.btn_translate:

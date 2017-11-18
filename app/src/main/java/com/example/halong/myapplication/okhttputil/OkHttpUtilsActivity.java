@@ -1,4 +1,4 @@
-package com.example.halong.myapplication.okhttputils;
+package com.example.halong.myapplication.okhttputil;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

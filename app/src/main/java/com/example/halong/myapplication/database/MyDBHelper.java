@@ -19,6 +19,8 @@ public class MyDBHelper extends SQLiteOpenHelper {
         super(context, "test6", null, 1);
     }
 
+
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("drop table if exists "+Table_Name);
