@@ -11,7 +11,6 @@ public class SharedPreferencesUtil {
     private static SharedPreferences sharedPreferences;
 
     private SharedPreferencesUtil() {
-        throw new IllegalStateException("Sington only");
     }
 
     public static void init(Context context) {
@@ -21,7 +20,6 @@ public class SharedPreferencesUtil {
     public static void saveString(String key, String s) {
         sharedPreferences.edit().putString(key, s).commit();
     }
-
 
     public static String getString(String key) {
         return sharedPreferences.getString(key, null);
