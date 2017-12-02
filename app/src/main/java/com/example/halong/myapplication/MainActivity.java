@@ -1,39 +1,33 @@
 package com.example.halong.myapplication;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.halong.myapplication.actionbardrawertoggle.ActionBarDrawerToggleActivity;
-import com.example.halong.myapplication.animation.AnimationActivity;
-import com.example.halong.myapplication.cardview.CardViewDemoActivity;
-import com.example.halong.myapplication.data.Data;
-import com.example.halong.myapplication.dialog.DialogActivity;
-import com.example.halong.myapplication.drawerlayout.DrawerLayoutActivity;
-import com.example.halong.myapplication.gson.GsonDemoActivity;
-import com.example.halong.myapplication.notification.NotificationActivity;
-import com.example.halong.myapplication.okhttputil.OkHttpUtilsActivity;
-import com.example.halong.myapplication.recyclerview.RecyclerViewDemoActivity;
-import com.example.halong.myapplication.tablayout.TabLayoutActivity;
-import com.example.halong.myapplication.tabviewpager.TabViewPagerActivity;
-import com.example.halong.myapplication.textinputlayout.TextInputLayoutActivity;
-import com.example.halong.myapplication.broadcast.BroadcastActivity;
-import com.example.halong.myapplication.content.ContentActivity;
-import com.example.halong.myapplication.dagger2.DaggerActivity;
-import com.example.halong.myapplication.database.DatabaseActivity;
-import com.example.halong.myapplication.eventbus.EventbusActivity;
-import com.example.halong.myapplication.fragment.FragmentActivity;
-import com.example.halong.myapplication.okhttp.OkhttpActivity;
-import com.example.halong.myapplication.mvp.MvpActivity;
-import com.example.halong.myapplication.nanohttpd.NanohttpdActivity;
+import com.example.halong.myapplication.ActionBarDrawerToggle.ActionBarDrawerToggleActivity;
+import com.example.halong.myapplication.Animation.AnimationActivity;
+import com.example.halong.myapplication.EditText.EditTextActivity;
+import com.example.halong.myapplication.GreenDao.GreenDaoActivity;
+import com.example.halong.myapplication.Toolbar.ToolbarActivity;
+import com.example.halong.myapplication.CardView.CardViewActivity;
+import com.example.halong.myapplication.Dialog.DialogActivity;
+import com.example.halong.myapplication.Gson.GsonActivity;
+import com.example.halong.myapplication.Notification.NotificationActivity;
+import com.example.halong.myapplication.OkHttpUtils.OkHttpUtilsActivity;
+import com.example.halong.myapplication.RecyclerView.RecyclerViewDemoActivity;
+import com.example.halong.myapplication.TabLayout.TabLayoutActivity;
+import com.example.halong.myapplication.TextInputLayout.TextInputLayoutActivity;
+import com.example.halong.myapplication.BroadcastReceiver.BroadcastActivity;
+import com.example.halong.myapplication.ContentProvider.ContentActivity;
+import com.example.halong.myapplication.Dagger2.DaggerActivity;
+import com.example.halong.myapplication.SQLiteDatabase.DatabaseActivity;
+import com.example.halong.myapplication.EventBus.EventbusActivity;
+import com.example.halong.myapplication.Fragment.FragmentActivity;
+import com.example.halong.myapplication.NanoHTTPD.NanohttpdActivity;
 import com.example.halong.myapplication.pulltorefresh.PulltorefreshActivity;
-import com.example.halong.myapplication.service.ServiceActivity;
-import com.orhanobut.logger.Logger;
+import com.example.halong.myapplication.Service.ServiceActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -104,46 +98,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
-        SharedPreferences sharedPreferences=getSharedPreferences("test", Context.MODE_PRIVATE);
-        if(sharedPreferences.getInt("width",0)==0){
-            DisplayMetrics displayMetrics=getResources().getDisplayMetrics();
-            float density=displayMetrics.density;
-            float widthPixels=displayMetrics.widthPixels;
-            int width=(int)(widthPixels/density+0.5f);
-
-            sharedPreferences.edit().putInt("width",width).commit();
-            Logger.d( Data.Width);
-        }else {
-            Data.Width=sharedPreferences.getInt("width",0);
-            Logger.d( Data.Width);
-        }
-
-
         mButton1.setText("Fragment");
         mButton2.setText("Broadcast");
         mButton3.setText("Service");
         mButton4.setText("Content");
         mButton5.setText("Pulltorefresh");
-        mButton6.setText("MvpActivity");
+        mButton6.setText("EditText");
         mButton7.setText("Eventbus");
-        mButton8.setText("DrawerLayout");
-        mButton9.setText("TabViewPager");
+        mButton8.setText("GreenDaoActivity");
+        mButton9.setText("");
         mButton10.setText("Notification");
         mButton11.setText("TabLayout");
         mButton12.setText("SQLite");
         mButton13.setText("OkhttpActivity");
         mButton14.setText("DialogActivity");
-        mButton15.setText("GsonDemoActivity");
+        mButton15.setText("GsonActivity");
         mButton16.setText("RecyclerViewDemoActivity");
-        mButton17.setText("CardViewDemoActivity");
+        mButton17.setText("CardViewActivity");
         mButton18.setText("AnimationActivity");
         mButton19.setText("DaggerActivity");
         mButton20.setText("NanohttpdActivity");
         mButton21.setText("TextInputLayoutActivity");
         mButton22.setText("ActionBarDrawerToggleActivity");
         mButton23.setText("OkHttpUtilsActivity");
-
+        mButton24.setText("ToolbarActivity");
 
     }
 
@@ -166,16 +144,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, PulltorefreshActivity.class));
                 break;
             case R.id.button6:
-                startActivity(new Intent(this, MvpActivity.class));
+                startActivity(new Intent(this, EditTextActivity.class));
                 break;
             case R.id.button7:
                 startActivity(new Intent(this, EventbusActivity.class));
                 break;
             case R.id.button8:
-                startActivity(new Intent(this, DrawerLayoutActivity.class));
+                startActivity(new Intent(this, GreenDaoActivity.class));
                 break;
             case R.id.button9:
-                startActivity(new Intent(this, TabViewPagerActivity.class));
                 break;
             case R.id.button10:
                 startActivity(new Intent(this, NotificationActivity.class));
@@ -187,19 +164,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, DatabaseActivity.class));
                 break;
             case R.id.button13:
-                startActivity(new Intent(this, OkhttpActivity.class));
                 break;
             case R.id.button14:
                 startActivity(new Intent(this, DialogActivity.class));
                 break;
             case R.id.button15:
-                startActivity(new Intent(this, GsonDemoActivity.class));
+                startActivity(new Intent(this, GsonActivity.class));
                 break;
             case R.id.button16:
                 startActivity(new Intent(this, RecyclerViewDemoActivity.class));
                 break;
             case R.id.button17:
-                startActivity(new Intent(this, CardViewDemoActivity.class));
+                startActivity(new Intent(this, CardViewActivity.class));
                 break;
             case R.id.button18:
                 startActivity(new Intent(this, AnimationActivity.class));
@@ -220,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, OkHttpUtilsActivity.class));
                 break;
             case R.id.button24:
+                startActivity(new Intent(this, ToolbarActivity.class));
                 break;
             case R.id.button25:
                 break;

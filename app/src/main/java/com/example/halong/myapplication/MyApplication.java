@@ -13,7 +13,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-
         //初始化orhanobut Logger
         Logger.addLogAdapter(new AndroidLogAdapter(){
             @Override
@@ -21,7 +20,6 @@ public class MyApplication extends Application {
                 return BuildConfig.DEBUG;
             }
         });
-
 
     }
 }

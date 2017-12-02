@@ -20,40 +20,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".Fragment.FragmentActivity" />
 
-        <service android:name=".service.MyService" />
+        <service android:name=".Service.MyService" />
 
-        <receiver android:name=".broadcast.MyReceiver" />
+        <receiver android:name=".BroadcastReceiver.MyReceiver" />
 
         <provider
-            android:name=".content.MyProvider"
-            android:authorities="com.example.halong.myapplication.content.MyProvider" />
+            android:name=".ContentProvider.MyProvider"
+            android:authorities="com.example.halong.myapplication.ContentProvider.MyProvider" />
 
-        <activity android:name=".broadcast.BroadcastActivity" />
-        <activity android:name=".service.ServiceActivity" />
-        <activity android:name=".content.ContentActivity" />
-        <activity android:name=".okhttp.OkhttpActivity" />
+        <activity android:name=".BroadcastReceiver.BroadcastActivity" />
+        <activity android:name=".Service.ServiceActivity" />
+        <activity android:name=".ContentProvider.ContentActivity" />
         <activity android:name=".pulltorefresh.PulltorefreshActivity" />
-        <activity android:name=".database.DatabaseActivity" />
-        <activity android:name=".mvp.MvpActivity" />
-        <activity android:name=".eventbus.EventbusActivity" />
-        <activity android:name=".drawerlayout.DrawerLayoutActivity" />
-        <activity android:name=".tabviewpager.TabViewPagerActivity" />
-        <activity android:name=".notification.NotificationActivity" />
-        <activity android:name=".tablayout.TabLayoutActivity" />
-        <activity android:name=".dialog.DialogActivity" />
-        <activity android:name=".gson.GsonDemoActivity" />
-        <activity android:name=".recyclerview.RecyclerViewDemoActivity" />
-        <activity android:name=".cardview.CardViewDemoActivity" />
-        <activity android:name=".dagger2.DaggerActivity" />
-        <activity android:name=".nanohttpd.NanohttpdActivity" />
-        <activity android:name=".textinputlayout.TextInputLayoutActivity" />
-        <activity android:name=".actionbardrawertoggle.ActionBarDrawerToggleActivity" />
-        <activity android:name=".pulltorefresh.RefreshActivity" />
-        <activity android:name=".swiperecyclerview.SwipeRecyclerActivity" />
-        <activity android:name=".okhttputil.OkHttpUtilsActivity" />
-        <activity android:name=".animation.AnimationActivity"/>
+        <activity android:name=".SQLiteDatabase.DatabaseActivity" />
+        <activity android:name=".EventBus.EventbusActivity" />
+        <activity android:name=".Notification.NotificationActivity" />
+        <activity android:name=".TabLayout.TabLayoutActivity" />
+        <activity android:name=".Dialog.DialogActivity" />
+        <activity android:name=".Gson.GsonActivity" />
+        <activity android:name=".RecyclerView.RecyclerViewDemoActivity" />
+        <activity android:name=".CardView.CardViewActivity" />
+        <activity android:name=".Dagger2.DaggerActivity" />
+        <activity android:name=".NanoHTTPD.NanohttpdActivity" />
+        <activity android:name=".TextInputLayout.TextInputLayoutActivity" />
+        <activity android:name=".ActionBarDrawerToggle.ActionBarDrawerToggleActivity" />
+        <activity android:name=".OkHttpUtils.OkHttpUtilsActivity" />
+        <activity android:name=".Animation.AnimationActivity" />
+        <activity android:name=".Toolbar.ToolbarActivity" />
+        <activity
+            android:name=".EditText.EditTextActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".GreenDao.GreenDaoActivity"></activity>
     </application>
 
 </manifest>

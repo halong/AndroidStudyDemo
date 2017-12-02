@@ -140,8 +140,6 @@ public class PulltorefreshActivity extends AppCompatActivity {
                     }
 
                 }
-
-
             }
             return null;
         }
