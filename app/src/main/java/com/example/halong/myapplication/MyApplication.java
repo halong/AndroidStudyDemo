@@ -1,6 +1,8 @@
 package com.example.halong.myapplication;
 
 import android.app.Application;
+
+import com.example.halong.myapplication.GreenDao.GreenDaoHelper;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -20,6 +22,8 @@ public class MyApplication extends Application {
                 return BuildConfig.DEBUG;
             }
         });
+
+        GreenDaoHelper.init(this);
 
     }
 }

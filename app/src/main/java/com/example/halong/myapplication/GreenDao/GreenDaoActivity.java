@@ -10,89 +10,92 @@ import com.example.halong.myapplication.R;
 
 import java.util.List;
 
+
 public class GreenDaoActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView mTv;
+
+    private TextView mTvShow;
     /**
      * insert
      */
-    private Button mBtn1;
+    private Button mBtnInsert;
     /**
      * query
      */
-    private Button mBtn2;
+    private Button mBtnQuery;
     /**
      * update
      */
-    private Button mBtn3;
+    private Button mBtnUpdate;
     /**
      * delete
      */
-    private Button mBtn4;
+    private Button mBtnDelete;
 
-    private String text = "";
+    private String showText = "";
 
-    private UserDao userDao;
+    private UserDao userDao = GreenDaoHelper.getUserDao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_green_dao);
         initView();
-
-        DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(getApplicationContext(), "lenve.db");
-        DaoMaster daoMaster = new DaoMaster(devOpenHelper.getWritableDb());
-        DaoSession daoSession = daoMaster.newSession();
-        userDao = daoSession.getUserDao();
-
     }
 
+
     private void initView() {
-        mTv = (TextView) findViewById(R.id.tv);
-        mBtn1 = (Button) findViewById(R.id.btn1);
-        mBtn1.setOnClickListener(this);
-        mBtn2 = (Button) findViewById(R.id.btn2);
-        mBtn2.setOnClickListener(this);
-        mBtn3 = (Button) findViewById(R.id.btn3);
-        mBtn3.setOnClickListener(this);
-        mBtn4 = (Button) findViewById(R.id.btn4);
-        mBtn4.setOnClickListener(this);
+        mTvShow = (TextView) findViewById(R.id.tv_show);
+        mBtnInsert = (Button) findViewById(R.id.btn_insert);
+        mBtnInsert.setOnClickListener(this);
+        mBtnQuery = (Button) findViewById(R.id.btn_query);
+        mBtnQuery.setOnClickListener(this);
+        mBtnUpdate = (Button) findViewById(R.id.btn_update);
+        mBtnUpdate.setOnClickListener(this);
+        mBtnDelete = (Button) findViewById(R.id.btn_delete);
+        mBtnDelete.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn1:
-                User user = new User(null, "zhangsan", "张三");
+            case R.id.btn_insert:
+                User user = new User(null, "张三", 19);
                 userDao.insert(user);
-                text += "insert a user\n";
-                mTv.setText(text);
+                showText += " userDao.insert(user);\n";
                 break;
-            case R.id.btn2:
-                List<User> list = userDao.queryBuilder().where(UserDao.Properties.Username.eq("zhangsan")).build().list();
-                text += "user1.getNickname:";
+            case R.id.btn_query:
+                List<User> list = userDao.queryBuilder().build().list();
                 for (User user1 : list) {
-                    text += user1.getNickname() + "\n";
+                    showText += "User:" + user1.getId() + "  " + user1.getName() + "  " + user1.getAge() + "\n";
                 }
-                mTv.setText(text);
                 break;
-            case R.id.btn3:
-                List<User> list3 = userDao.queryBuilder().where(UserDao.Properties.Username.eq("zhangsan")).build().list();
-                for (User user1 : list3) {
-                    user1.setNickname("王五");
+            case R.id.btn_update:
+                List<User> users = userDao.queryBuilder().where(UserDao.Properties.Name.eq("张三")).build().list();
+                User user1=null;
+                if(users.size()>0){
+                    user1=users.get(0);
+                }
+
+                if(user1!=null){
+                    user1.setName("李四");
                     userDao.update(user1);
-                    text += "update user1\n";
+                    showText+="user1.setName(\"李四\");\n";
                 }
-                mTv.setText(text);
                 break;
-            case R.id.btn4:
-                List<User> list4 = userDao.queryBuilder().where(UserDao.Properties.Username.eq("zhangsan")).build().list();
-                for (User user1 : list4) {
-                    userDao.delete(user1);
-                    text += "delete user1\n";
+            case R.id.btn_delete:
+                List<User> users2 = userDao.queryBuilder().where(UserDao.Properties.Name.eq("张三")).build().list();
+                User user2=null;
+                if(users2.size()>0){
+                    user2=users2.get(0);
                 }
-                mTv.setText(text);
+
+               if (user2!=null){
+                   userDao.delete(user2);
+                   showText+="userDao.delete(user2);\n";
+               }
                 break;
         }
+        mTvShow.setText(showText);
     }
 }

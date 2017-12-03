@@ -105,23 +105,23 @@ public class MainActivity extends AppCompatActivity {
         mButton5.setText("Pulltorefresh");
         mButton6.setText("EditText");
         mButton7.setText("Eventbus");
-        mButton8.setText("GreenDaoActivity");
+        mButton8.setText("GreenDao");
         mButton9.setText("");
         mButton10.setText("Notification");
         mButton11.setText("TabLayout");
         mButton12.setText("SQLite");
-        mButton13.setText("OkhttpActivity");
-        mButton14.setText("DialogActivity");
-        mButton15.setText("GsonActivity");
-        mButton16.setText("RecyclerViewDemoActivity");
-        mButton17.setText("CardViewActivity");
-        mButton18.setText("AnimationActivity");
-        mButton19.setText("DaggerActivity");
-        mButton20.setText("NanohttpdActivity");
-        mButton21.setText("TextInputLayoutActivity");
-        mButton22.setText("ActionBarDrawerToggleActivity");
-        mButton23.setText("OkHttpUtilsActivity");
-        mButton24.setText("ToolbarActivity");
+        mButton13.setText("Okhttp");
+        mButton14.setText("Dialog");
+        mButton15.setText("Gson");
+        mButton16.setText("RecyclerView");
+        mButton17.setText("CardView");
+        mButton18.setText("Animation");
+        mButton19.setText("Dagger2");
+        mButton20.setText("NanoHTTPD");
+        mButton21.setText("TextInputLayout");
+        mButton22.setText("ActionBarDrawerToggle");
+        mButton23.setText("OkHttpUtils");
+        mButton24.setText("Toolbar");
 
     }
 

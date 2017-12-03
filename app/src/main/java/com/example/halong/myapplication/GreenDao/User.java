@@ -2,25 +2,22 @@ package com.example.halong.myapplication.GreenDao;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Generated;
 
 /**
- * Created by halong on 2017/12/2.
+ * Created by halong on 2017/12/3.
  */
 @Entity
 public class User {
     @Id
     private Long id;
-    @Property(nameInDb = "USERNAME")
-    private String username;
-    @Property(nameInDb = "NICKNAME")
-    private String nickname;
-    @Generated(hash = 523935516)
-    public User(Long id, String username, String nickname) {
+    private String name;
+    private int age;
+    @Generated(hash = 1309193360)
+    public User(Long id, String name, int age) {
         this.id = id;
-        this.username = username;
-        this.nickname = nickname;
+        this.name = name;
+        this.age = age;
     }
     @Generated(hash = 586692638)
     public User() {
@@ -31,16 +28,16 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getUsername() {
-        return this.username;
+    public String getName() {
+        return this.name;
     }
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getNickname() {
-        return this.nickname;
+    public int getAge() {
+        return this.age;
     }
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setAge(int age) {
+        this.age = age;
     }
 }

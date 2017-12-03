@@ -52,7 +52,22 @@
         <activity
             android:name=".EditText.EditTextActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".GreenDao.GreenDaoActivity"></activity>
+        <activity android:name=".GreenDao.GreenDaoActivity" />
+        <activity android:name=".AbsoluteLayout.AbsoluteLayoutActivity" />
+        <activity android:name=".Button.ButtonActivity" />
+        <activity android:name=".Checkbox.CheckboxActivity" />
+        <activity android:name=".FrameLayout.FrameLayoutActivity" />
+        <activity android:name=".ImageButton.ImageButtonActivity" />
+        <activity android:name=".ImageView.ImageViewActivity" />
+        <activity android:name=".LinearLayout.LinearLayoutActivity" />
+        <activity android:name=".ListView.ListViewActivity" />
+        <activity android:name=".RadioButton.RadioButtonActivity" />
+        <activity android:name=".RelativeLayout.RelativeLayoutActivity" />
+        <activity android:name=".SharedPreferences.SharedPreferencesActivity" />
+        <activity android:name=".Spinner.SpinnerActivity" />
+        <activity android:name=".TableLayout.TableLayoutActivity" />
+        <activity android:name=".TextView.TextViewActivity" />
+        <activity android:name=".GridLayout.GridLayoutActivity"></activity>
     </application>
 
 </manifest>

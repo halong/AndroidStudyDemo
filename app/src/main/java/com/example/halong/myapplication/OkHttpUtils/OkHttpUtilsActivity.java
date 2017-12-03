@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.halong.myapplication.R;
 import com.squareup.okhttp.Request;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -47,12 +46,10 @@ public class OkHttpUtilsActivity extends AppCompatActivity implements View.OnCli
                             @Override
                             public void onError(Request request, Exception e) {
                                 mTv1.setText(e.getMessage());
-
                             }
 
                             @Override
                             public void onResponse(String response) {
-
                                 mTv1.setText(response);
                             }
                         });

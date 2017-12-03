@@ -59,7 +59,6 @@ public class GsonActivity extends AppCompatActivity implements View.OnClickListe
         user = new User("Lilei", 26, 170.2, true);
         user2 = new User("Wangmei", 25, 160.4, false);
 
-
         users = new ArrayList<>();
         users.add(user);
         users.add(user2);
@@ -100,8 +99,7 @@ public class GsonActivity extends AppCompatActivity implements View.OnClickListe
                 mText3.setText(jsons);
                 break;
             case R.id.button4:
-                List<User> us = gson.fromJson(jsons, new TypeToken<List<User>>() {
-                }.getType());
+                List<User> us = gson.fromJson(jsons, new TypeToken<List<User>>() {}.getType());
                 mText4.setText(us.get(1).getName());
                 break;
         }
