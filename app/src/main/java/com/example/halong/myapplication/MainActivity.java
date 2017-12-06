@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.halong.myapplication.ActionBarDrawerToggle.ActionBarDrawerToggleActivity;
 import com.example.halong.myapplication.Animation.AnimationActivity;
+import com.example.halong.myapplication.DataCenter.bean.User;
 import com.example.halong.myapplication.EditText.EditTextActivity;
 import com.example.halong.myapplication.GreenDao.GreenDaoActivity;
 import com.example.halong.myapplication.Toolbar.ToolbarActivity;
@@ -28,6 +29,10 @@ import com.example.halong.myapplication.Fragment.FragmentActivity;
 import com.example.halong.myapplication.NanoHTTPD.NanohttpdActivity;
 import com.example.halong.myapplication.pulltorefresh.PulltorefreshActivity;
 import com.example.halong.myapplication.Service.ServiceActivity;
+import com.orhanobut.logger.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -97,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
 
         mButton1.setText("Fragment");
         mButton2.setText("Broadcast");

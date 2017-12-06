@@ -34,7 +34,7 @@ public class GreenDaoActivity extends AppCompatActivity implements View.OnClickL
 
     private String showText = "";
 
-    private UserDao userDao = GreenDaoHelper.getUserDao();
+    private UserDao userDao = GreenDaoUtil.getUserDao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,19 +64,20 @@ public class GreenDaoActivity extends AppCompatActivity implements View.OnClickL
                 userDao.insert(user);
                 showText += " userDao.insert(user);\n";
                 break;
+
             case R.id.btn_query:
                 List<User> list = userDao.queryBuilder().build().list();
                 for (User user1 : list) {
                     showText += "User:" + user1.getId() + "  " + user1.getName() + "  " + user1.getAge() + "\n";
                 }
                 break;
+
             case R.id.btn_update:
                 List<User> users = userDao.queryBuilder().where(UserDao.Properties.Name.eq("张三")).build().list();
                 User user1=null;
                 if(users.size()>0){
                     user1=users.get(0);
                 }
-
                 if(user1!=null){
                     user1.setName("李四");
                     userDao.update(user1);
