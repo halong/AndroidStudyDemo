@@ -10,24 +10,17 @@ import android.widget.TextView;
 
 import com.example.halong.myapplication.R;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+import java.io.IOException;
+
 public class NanohttpdActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mText;
     private ImageView mImage;
-    /**
-     * 测试DownloadService
-     */
     private Button mBtn1;
-    /**
-     * 测试UploadService
-     */
     private Button mBtn2;
-    /**
-     * 测试Form
-     */
     private Button mBtn3;
-    /**
-     * 测试Get请求下载文件
-     */
     private Button mBtn4;
 
     @Override
@@ -35,6 +28,37 @@ public class NanohttpdActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nanohttpd);
         initView();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        try {
+            MyNanoHTTPD.getDefault().start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        MyNanoHTTPD.getDefault().stop();
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Subscribe
+    public void onMessageEvent(EventMessage message) {
+        switch (message.flag) {
+            case EventMessage.text:
+
+                break;
+            case EventMessage.image:
+                break;
+        }
+
     }
 
     private void initView() {

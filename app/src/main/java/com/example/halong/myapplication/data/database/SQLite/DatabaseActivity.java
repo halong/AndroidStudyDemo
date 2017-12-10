@@ -8,7 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.halong.myapplication.R;
-import com.example.halong.myapplication.DataCenter.bean.User;
 
 public class DatabaseActivity extends AppCompatActivity implements View.OnClickListener {
 
