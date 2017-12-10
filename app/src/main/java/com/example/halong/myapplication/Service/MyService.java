@@ -7,10 +7,6 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
-import com.example.halong.myapplication.NanoHTTPD.MyNanohttpd;
-
-import java.io.IOException;
-
 public class MyService extends Service{
     public MyService() {
     }

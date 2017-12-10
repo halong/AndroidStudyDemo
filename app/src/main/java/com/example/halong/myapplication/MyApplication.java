@@ -2,7 +2,7 @@ package com.example.halong.myapplication;
 
 import android.app.Application;
 
-import com.example.halong.myapplication.GreenDao.GreenDaoUtil;
+import com.example.halong.myapplication.data.database.GreenDao.GreenDaoUtil;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 

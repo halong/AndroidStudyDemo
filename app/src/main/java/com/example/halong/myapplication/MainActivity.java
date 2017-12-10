@@ -6,33 +6,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.halong.myapplication.ActionBarDrawerToggle.ActionBarDrawerToggleActivity;
-import com.example.halong.myapplication.Animation.AnimationActivity;
-import com.example.halong.myapplication.DataCenter.bean.User;
-import com.example.halong.myapplication.EditText.EditTextActivity;
-import com.example.halong.myapplication.GreenDao.GreenDaoActivity;
-import com.example.halong.myapplication.Toolbar.ToolbarActivity;
-import com.example.halong.myapplication.CardView.CardViewActivity;
-import com.example.halong.myapplication.Dialog.DialogActivity;
-import com.example.halong.myapplication.Gson.GsonActivity;
-import com.example.halong.myapplication.Notification.NotificationActivity;
-import com.example.halong.myapplication.OkHttpUtils.OkHttpUtilsActivity;
-import com.example.halong.myapplication.RecyclerView.RecyclerViewDemoActivity;
-import com.example.halong.myapplication.TabLayout.TabLayoutActivity;
-import com.example.halong.myapplication.TextInputLayout.TextInputLayoutActivity;
+import com.example.halong.myapplication.ui.ActionBarDrawerToggle.ActionBarDrawerToggleActivity;
+import com.example.halong.myapplication.ui.Animation.AnimationActivity;
 import com.example.halong.myapplication.BroadcastReceiver.BroadcastActivity;
+import com.example.halong.myapplication.ui.CardView.CardViewActivity;
 import com.example.halong.myapplication.ContentProvider.ContentActivity;
 import com.example.halong.myapplication.Dagger2.DaggerActivity;
-import com.example.halong.myapplication.SQLiteDatabase.DatabaseActivity;
+import com.example.halong.myapplication.ui.Dialog.DialogActivity;
+import com.example.halong.myapplication.ui.EditText.EditTextActivity;
 import com.example.halong.myapplication.EventBus.EventbusActivity;
-import com.example.halong.myapplication.Fragment.FragmentActivity;
-import com.example.halong.myapplication.NanoHTTPD.NanohttpdActivity;
-import com.example.halong.myapplication.pulltorefresh.PulltorefreshActivity;
+import com.example.halong.myapplication.ui.Fragment.FragmentActivity;
+import com.example.halong.myapplication.data.database.GreenDao.GreenDaoActivity;
+import com.example.halong.myapplication.Gson.GsonActivity;
+import com.example.halong.myapplication.data.network.NanoHTTPD.NanohttpdActivity;
+import com.example.halong.myapplication.ui.Notification.NotificationActivity;
+import com.example.halong.myapplication.data.network.OkHttpUtils.OkHttpUtilsActivity;
+import com.example.halong.myapplication.data.network.Okhttp.OkhttpActivity;
+import com.example.halong.myapplication.ui.RecyclerView.RecyclerViewDemoActivity;
+import com.example.halong.myapplication.data.network.Retrofit.RetrofitActivity;
+import com.example.halong.myapplication.data.database.SQLite.DatabaseActivity;
 import com.example.halong.myapplication.Service.ServiceActivity;
-import com.orhanobut.logger.Logger;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.halong.myapplication.ui.TabLayout.TabLayoutActivity;
+import com.example.halong.myapplication.ui.TextInputLayout.TextInputLayoutActivity;
+import com.example.halong.myapplication.ui.Toolbar.ToolbarActivity;
+import com.example.halong.myapplication.pulltorefresh.PulltorefreshActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -103,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
         mButton1.setText("Fragment");
         mButton2.setText("Broadcast");
         mButton3.setText("Service");
@@ -112,11 +108,11 @@ public class MainActivity extends AppCompatActivity {
         mButton6.setText("EditText");
         mButton7.setText("Eventbus");
         mButton8.setText("GreenDao");
-        mButton9.setText("");
+        mButton9.setText("Retrofit");
         mButton10.setText("Notification");
         mButton11.setText("TabLayout");
         mButton12.setText("SQLite");
-        mButton13.setText("Okhttp");
+        mButton13.setText("");
         mButton14.setText("Dialog");
         mButton15.setText("Gson");
         mButton16.setText("RecyclerView");
@@ -128,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
         mButton22.setText("ActionBarDrawerToggle");
         mButton23.setText("OkHttpUtils");
         mButton24.setText("Toolbar");
+        mButton25.setText("OkHttp");
 
     }
 
@@ -159,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, GreenDaoActivity.class));
                 break;
             case R.id.button9:
+                startActivity(new Intent(this, RetrofitActivity.class));
                 break;
             case R.id.button10:
                 startActivity(new Intent(this, NotificationActivity.class));
@@ -205,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ToolbarActivity.class));
                 break;
             case R.id.button25:
+                startActivity(new Intent(this, OkhttpActivity.class));
                 break;
             case R.id.button26:
                 break;

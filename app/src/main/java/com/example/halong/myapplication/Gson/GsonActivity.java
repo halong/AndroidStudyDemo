@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.halong.myapplication.R;
-import com.example.halong.myapplication.DataCenter.bean.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -91,7 +90,7 @@ public class GsonActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.button2:
                 User user3 = gson.fromJson(json, User.class);
-                mText2.setText(user3.getName());
+                mText2.setText(user3.name);
                 break;
 
             case R.id.button3:
@@ -100,7 +99,7 @@ public class GsonActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button4:
                 List<User> us = gson.fromJson(jsons, new TypeToken<List<User>>() {}.getType());
-                mText4.setText(us.get(1).getName());
+                mText4.setText(us.get(1).name);
                 break;
         }
     }

@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.halong.myapplication.RelativeLayout.RelativeLayoutActivity">
+    tools:context=".ui.RelativeLayout.RelativeLayoutActivity">
 
 </android.support.constraint.ConstraintLayout>

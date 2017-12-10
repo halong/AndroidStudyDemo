@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.halong.myapplication.NanoHTTPD.NanohttpdActivity">
+    tools:context=".data.network.NanoHTTPD.NanohttpdActivity">
 
 
     <LinearLayout
@@ -13,8 +13,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="300dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -22,10 +21,9 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv1"
+                    android:id="@+id/text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp" />
+                    android:layout_height="wrap_content" />
 
                 <ImageView
                     android:id="@+id/image"
@@ -38,43 +36,36 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="开启" />
-
-                <Button
-                    android:id="@+id/btn3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="停止" />
 
                 <Button
                     android:id="@+id/btn1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="测试Get" />
+                    android:text="测试DownloadService" />
 
+                <Button
+                    android:id="@+id/btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="测试UploadService" />
+
+                <Button
+                    android:id="@+id/btn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="测试Form" />
                 <Button
                     android:id="@+id/btn4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="测试Post" />
-
-                <Button
-                    android:id="@+id/btn5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="测试Form" />
+                    android:text="测试Get请求下载文件" />
             </LinearLayout>
 
         </ScrollView>

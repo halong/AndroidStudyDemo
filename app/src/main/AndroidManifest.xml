@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Fragment.FragmentActivity" />
+        <activity android:name=".ui.Fragment.FragmentActivity" />
 
         <service android:name=".Service.MyService" />
 
@@ -36,41 +36,43 @@
         <activity android:name=".Service.ServiceActivity" />
         <activity android:name=".ContentProvider.ContentActivity" />
         <activity android:name=".pulltorefresh.PulltorefreshActivity" />
-        <activity android:name=".SQLiteDatabase.DatabaseActivity" />
+        <activity android:name=".data.database.SQLite.DatabaseActivity" />
         <activity android:name=".EventBus.EventbusActivity" />
-        <activity android:name=".Notification.NotificationActivity" />
-        <activity android:name=".TabLayout.TabLayoutActivity" />
-        <activity android:name=".Dialog.DialogActivity" />
+        <activity android:name=".ui.Notification.NotificationActivity" />
+        <activity android:name=".ui.TabLayout.TabLayoutActivity" />
+        <activity android:name=".ui.Dialog.DialogActivity" />
         <activity android:name=".Gson.GsonActivity" />
-        <activity android:name=".RecyclerView.RecyclerViewDemoActivity" />
-        <activity android:name=".CardView.CardViewActivity" />
+        <activity android:name=".ui.RecyclerView.RecyclerViewDemoActivity" />
+        <activity android:name=".ui.CardView.CardViewActivity" />
         <activity android:name=".Dagger2.DaggerActivity" />
-        <activity android:name=".NanoHTTPD.NanohttpdActivity" />
-        <activity android:name=".TextInputLayout.TextInputLayoutActivity" />
-        <activity android:name=".ActionBarDrawerToggle.ActionBarDrawerToggleActivity" />
-        <activity android:name=".OkHttpUtils.OkHttpUtilsActivity" />
-        <activity android:name=".Animation.AnimationActivity" />
-        <activity android:name=".Toolbar.ToolbarActivity" />
+        <activity android:name=".data.network.NanoHTTPD.NanohttpdActivity" />
+        <activity android:name=".ui.TextInputLayout.TextInputLayoutActivity" />
+        <activity android:name=".ui.ActionBarDrawerToggle.ActionBarDrawerToggleActivity" />
+        <activity android:name=".data.network.OkHttpUtils.OkHttpUtilsActivity" />
+        <activity android:name=".ui.Animation.AnimationActivity" />
+        <activity android:name=".ui.Toolbar.ToolbarActivity" />
         <activity
-            android:name=".EditText.EditTextActivity"
+            android:name=".ui.EditText.EditTextActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".GreenDao.GreenDaoActivity" />
-        <activity android:name=".AbsoluteLayout.AbsoluteLayoutActivity" />
-        <activity android:name=".Button.ButtonActivity" />
-        <activity android:name=".Checkbox.CheckboxActivity" />
-        <activity android:name=".FrameLayout.FrameLayoutActivity" />
-        <activity android:name=".ImageButton.ImageButtonActivity" />
-        <activity android:name=".ImageView.ImageViewActivity" />
-        <activity android:name=".LinearLayout.LinearLayoutActivity" />
-        <activity android:name=".ListView.ListViewActivity" />
-        <activity android:name=".RadioButton.RadioButtonActivity" />
-        <activity android:name=".RelativeLayout.RelativeLayoutActivity" />
-        <activity android:name=".SharedPreferences.SharedPreferencesActivity" />
-        <activity android:name=".Spinner.SpinnerActivity" />
-        <activity android:name=".TableLayout.TableLayoutActivity" />
-        <activity android:name=".TextView.TextViewActivity" />
-        <activity android:name=".GridLayout.GridLayoutActivity" />
-        <activity android:name=".Okhttp.OkhttpActivity"></activity>
+        <activity android:name=".data.database.GreenDao.GreenDaoActivity" />
+        <activity android:name=".ui.AbsoluteLayout.AbsoluteLayoutActivity" />
+        <activity android:name=".ui.Button.ButtonActivity" />
+        <activity android:name=".ui.Checkbox.CheckboxActivity" />
+        <activity android:name=".ui.FrameLayout.FrameLayoutActivity" />
+        <activity android:name=".ui.ImageButton.ImageButtonActivity" />
+        <activity android:name=".ui.ImageView.ImageViewActivity" />
+        <activity android:name=".ui.LinearLayout.LinearLayoutActivity" />
+        <activity android:name=".ui.ListView.ListViewActivity" />
+        <activity android:name=".ui.RadioButton.RadioButtonActivity" />
+        <activity android:name=".ui.RelativeLayout.RelativeLayoutActivity" />
+        <activity android:name=".data.SharedPreferences.SharedPreferencesActivity" />
+        <activity android:name=".ui.Spinner.SpinnerActivity" />
+        <activity android:name=".ui.TableLayout.TableLayoutActivity" />
+        <activity android:name=".ui.TextView.TextViewActivity" />
+        <activity android:name=".ui.GridLayout.GridLayoutActivity" />
+        <activity android:name=".data.network.Okhttp.OkhttpActivity" />
+        <activity android:name=".data.network.Retrofit.RetrofitActivity" />
+        <activity android:name=".RxAndroid.RxAndroidActivity"></activity>
     </application>
 
 </manifest>
