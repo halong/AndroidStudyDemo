@@ -43,42 +43,42 @@
                     android:id="@+id/button1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="测试->不带参数GET"
+                    android:text="测试OkHttp不带参数GET请求"
                     android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="测试->带参数GET"
+                    android:text="测试OkHttp带参数GET请求"
                     android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/button3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="测试->POST上传参数"
+                    android:text="测试OkHttp的POST上传参数"
                     android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="测试->POST上传字符串"
+                    android:text="测试OkHttp的POST上传字符串"
                     android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/button5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="测试->POST上传文件"
+                    android:text="测试OkHttp的POST上传文件"
                     android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/button6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="测试->POST上传表单"
+                    android:text="测试OkHttp的POST上传表单"
                     android:textAllCaps="false" />
 
 

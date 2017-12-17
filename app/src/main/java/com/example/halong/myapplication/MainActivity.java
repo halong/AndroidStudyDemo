@@ -6,12 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.halong.myapplication.others.Dagger2.DaggerActivity;
 import com.example.halong.myapplication.ui.ActionBarDrawerToggle.ActionBarDrawerToggleActivity;
 import com.example.halong.myapplication.ui.Animation.AnimationActivity;
 import com.example.halong.myapplication.others.BroadcastReceiver.BroadcastActivity;
 import com.example.halong.myapplication.ui.CardView.CardViewActivity;
 import com.example.halong.myapplication.data.ContentProvider.ContentActivity;
-import com.example.halong.myapplication.others.Dagger2.DaggerActivity;
 import com.example.halong.myapplication.ui.Dialog.DialogActivity;
 import com.example.halong.myapplication.ui.EditText.EditTextActivity;
 import com.example.halong.myapplication.others.EventBus.EventbusActivity;

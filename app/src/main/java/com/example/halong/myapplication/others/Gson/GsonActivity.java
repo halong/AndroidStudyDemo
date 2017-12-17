@@ -97,8 +97,9 @@ public class GsonActivity extends AppCompatActivity implements View.OnClickListe
                 jsons = gson.toJson(users);
                 mText3.setText(jsons);
                 break;
+
             case R.id.button4:
-                List<User> us = gson.fromJson(jsons, new TypeToken<List<User>>() {}.getType());
+                List<User> us = gson.fromJson(jsons, new TypeToken<List<User>>(){}.getType());
                 mText4.setText(us.get(1).name);
                 break;
         }

@@ -40,12 +40,13 @@ public class MyNanoHTTPD extends NanoHTTPD {
 
     @Override
     public Response serve(IHTTPSession session) {
-        Logger.d(session.getParameters());
 
-        //客户端上传会自动编码  服务器端接收后要自动解码
+        //客户端上传会自动编码  服务器端接收后要进行解码
         switch (session.getMethod()) {
             //解析GET
             case GET:
+                Logger.d(session.getParameters());
+
                 //解析Parameters
                 Map<String, List<String>> map = session.getParameters();
                 List<String> vals = map.get("param");
@@ -73,9 +74,9 @@ public class MyNanoHTTPD extends NanoHTTPD {
                             //NanoHttpd下传文件
                             try {
                                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "123.jpg");
-                                return NanoHTTPD.newFixedLengthResponse(Response.Status.OK, "application/octet-stream", new FileInputStream(file), file.length());
+                                return NanoHTTPD.newFixedLengthResponse(Response.Status.OK, "application/octet-stream",new FileInputStream(file),file.length());
                                 //！这里有个坑  最后一个参数要用file.length
-                            } catch (FileNotFoundException e) {
+                            } catch (Exception e) {
                                 e.printStackTrace();
                                 return NanoHTTPD.newFixedLengthResponse("下传文件失败");
                             }
@@ -83,7 +84,7 @@ public class MyNanoHTTPD extends NanoHTTPD {
                 }
                 //解析POST
             case POST:
-                //post方法需要parseBody
+                //<1>post方法需要parseBody
                 Map<String, String> files = new HashMap<String, String>();//Map<key,上传的文件保存path>
                 try {
                     session.parseBody(files);
@@ -93,7 +94,7 @@ public class MyNanoHTTPD extends NanoHTTPD {
                     e.printStackTrace();
                 }
 
-                //解析Parameters
+                //<2>解析Parameters
                 Map<String, List<String>> map2 = session.getParameters();//Map<key,fileName>
                 for (String key : map2.keySet()) {
                     switch (key) {
@@ -105,6 +106,8 @@ public class MyNanoHTTPD extends NanoHTTPD {
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             }
+                            Logger.d(val);
+
                             if (val.equals("请求JSON")) {
                                 User user1 = new User("成龙h", 21);
                                 User user2 = new User("xiaohong", 31);

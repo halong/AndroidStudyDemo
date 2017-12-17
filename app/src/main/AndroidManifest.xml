@@ -72,7 +72,8 @@
         <activity android:name=".ui.GridLayout.GridLayoutActivity" />
         <activity android:name=".data.network.Okhttp.OkhttpActivity" />
         <activity android:name=".data.network.Retrofit.RetrofitActivity" />
-        <activity android:name=".others.RxAndroid.RxAndroidActivity"></activity>
+        <activity android:name=".others.RxAndroid.RxAndroidActivity" />
+        <activity android:name=".data.file.FileActivity"></activity>
     </application>
 
 </manifest>

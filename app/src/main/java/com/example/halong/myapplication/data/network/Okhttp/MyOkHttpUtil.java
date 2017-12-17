@@ -1,5 +1,10 @@
 package com.example.halong.myapplication.data.network.Okhttp;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+
 import java.io.File;
 import java.util.Map;
 import okhttp3.Callback;
@@ -15,6 +20,8 @@ import okhttp3.RequestBody;
  */
 
 public class MyOkHttpUtil {
+    private Handler handler=new Handler(Looper.getMainLooper());
+    private Message message;
     private MyOkHttpUtil() {
 
     }
