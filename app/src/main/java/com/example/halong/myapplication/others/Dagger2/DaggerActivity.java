@@ -58,7 +58,6 @@ public class DaggerActivity extends AppCompatActivity implements MyView {
         switch (v.getId()) {
             case R.id.button:
                 mEditText.setCursorVisible(false); //设置光标不可见
-
                 //设置关闭键盘
                 InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 im.hideSoftInputFromWindow(getCurrentFocus().getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);

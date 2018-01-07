@@ -21,9 +21,7 @@ import okhttp3.RequestBody;
 
 public class MyOkHttpUtil {
     private Handler handler=new Handler(Looper.getMainLooper());
-    private Message message;
     private MyOkHttpUtil() {
-
     }
 
     private static class Instance {

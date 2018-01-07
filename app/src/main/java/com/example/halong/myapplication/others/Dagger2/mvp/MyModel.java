@@ -5,7 +5,7 @@ package com.example.halong.myapplication.others.Dagger2.mvp;
  */
 
 public class MyModel {
-    private static String text="hello";
+    private String text="hello";
     public String getText() {
         return text;
     }

@@ -24,7 +24,7 @@ import fi.iki.elonen.NanoHTTPD;
  */
 
 public class MyNanoHTTPD extends NanoHTTPD {
-    public static String URL = "http://localhost:8088";
+    public static String URL = "http://localhost:8088/";
 
     private MyNanoHTTPD() {
         super(8088);
@@ -40,13 +40,10 @@ public class MyNanoHTTPD extends NanoHTTPD {
 
     @Override
     public Response serve(IHTTPSession session) {
-
-        //客户端上传会自动编码  服务器端接收后要进行解码
+        //***客户端上传会自动编码  服务器端接收后要进行解码
         switch (session.getMethod()) {
             //解析GET
             case GET:
-                Logger.d(session.getParameters());
-
                 //解析Parameters
                 Map<String, List<String>> map = session.getParameters();
                 List<String> vals = map.get("param");
@@ -82,9 +79,10 @@ public class MyNanoHTTPD extends NanoHTTPD {
                             }
                     }
                 }
+
                 //解析POST
             case POST:
-                //<1>post方法需要parseBody
+                //<1>post方法需要parseBody  针对post的form请求
                 Map<String, String> files = new HashMap<String, String>();//Map<key,上传的文件保存path>
                 try {
                     session.parseBody(files);

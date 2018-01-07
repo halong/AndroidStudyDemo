@@ -11,7 +11,7 @@ import dagger.Provides;
  */
 @Module
 public class MyModule {
-    private final MyView mMyView;
+    private MyView mMyView;
 
     public MyModule(MyView myView){
         mMyView = myView;

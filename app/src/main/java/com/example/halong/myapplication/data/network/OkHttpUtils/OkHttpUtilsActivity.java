@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.halong.myapplication.data.network.NanoHTTPD.TestService;
+import com.example.halong.myapplication.data.network.NanoHTTPD.TestNanoHTTPD;
 import com.example.halong.myapplication.R;
 import com.squareup.okhttp.Request;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -84,7 +84,7 @@ public class OkHttpUtilsActivity extends AppCompatActivity implements View.OnCli
     protected void onStart() {
         super.onStart();
         try {
-            TestService.getDefault().start();
+            TestNanoHTTPD.getDefault().start();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -93,7 +93,7 @@ public class OkHttpUtilsActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onStop() {
         super.onStop();
-        TestService.getDefault().stop();
+        TestNanoHTTPD.getDefault().stop();
     }
 
     @Override
@@ -130,7 +130,7 @@ public class OkHttpUtilsActivity extends AppCompatActivity implements View.OnCli
 
     private void uploadParamsByGet() {
         OkHttpUtils.get()
-                .url(TestService.URL)
+                .url(TestNanoHTTPD.URL)
                 .addParams("username", "hyman")
                 .addParams("password", "中文get")
                 .build()
@@ -161,7 +161,7 @@ public class OkHttpUtilsActivity extends AppCompatActivity implements View.OnCli
         }
 
         OkHttpUtils.post()
-                .url(TestService.URL)
+                .url(TestNanoHTTPD.URL)
                 .addParams("key", "val")
                 .addParams("zh", zh)
                 .build()
@@ -185,7 +185,7 @@ public class OkHttpUtilsActivity extends AppCompatActivity implements View.OnCli
 
     private void uploadStringByPost() {
         OkHttpUtils.postString()
-                .url(TestService.URL)
+                .url(TestNanoHTTPD.URL)
                 .content("hello中文")
                 .build()
                 .execute(new StringCallback() {
@@ -213,7 +213,7 @@ public class OkHttpUtilsActivity extends AppCompatActivity implements View.OnCli
         }
 
         OkHttpUtils.postFile()
-                .url(TestService.URL)
+                .url(TestNanoHTTPD.URL)
                 .file(file)
                 .build()
                 .execute(new StringCallback() {
@@ -282,7 +282,7 @@ public class OkHttpUtilsActivity extends AppCompatActivity implements View.OnCli
             e.printStackTrace();
         }
         OkHttpUtils.post()
-                .url(TestService.URL)
+                .url(TestNanoHTTPD.URL)
                 .addFile("form", "h.jpg", file)
                 .build()
                 .execute(new StringCallback() {

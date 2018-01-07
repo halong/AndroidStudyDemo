@@ -73,7 +73,17 @@
         <activity android:name=".data.network.Okhttp.OkhttpActivity" />
         <activity android:name=".data.network.Retrofit.RetrofitActivity" />
         <activity android:name=".others.RxAndroid.RxAndroidActivity" />
-        <activity android:name=".data.file.FileActivity"></activity>
+        <activity android:name=".data.file.FileActivity" />
+        <activity android:name=".others.Reflect.ReflectActivity" />
+        <activity android:name=".ui.RippleEffect.RippleEffectActivity" />
+        <activity android:name=".data.network.RxJavaRetrofit.RxjavaRetrofitActivity" />
+        <activity android:name=".others.LiveBus.LiveBusActivity" />
+        <activity android:name=".others.Singleton.SingletonActivity" />
+        <activity android:name=".others.Thread.ThreadActivity" />
+        <activity android:name=".ui.Matisse.MatisseDemoActivity" />
+        <activity android:name=".ui.SlideAdapter.SlideAdapterActivity" />
+        <activity android:name=".ui.Glide.GlideActivity" />
+        <activity android:name=".ui.TempControlView.TempControlViewActivity"></activity>
     </application>
 
 </manifest>

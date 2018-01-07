@@ -6,11 +6,14 @@ import com.example.halong.myapplication.data.database.GreenDao.GreenDaoUtil;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
+import okhttp3.OkHttpClient;
+
 /**
  * Created by halong on 2017/7/25.
  */
 
 public class MyApplication extends Application {
+    public static OkHttpClient okHttpClient;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -24,6 +27,5 @@ public class MyApplication extends Application {
         });
 
         GreenDaoUtil.init(this);
-
     }
 }

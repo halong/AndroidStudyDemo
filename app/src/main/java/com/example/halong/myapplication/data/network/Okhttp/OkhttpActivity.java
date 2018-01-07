@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.halong.myapplication.data.network.NanoHTTPD.TestService;
+import com.example.halong.myapplication.data.network.NanoHTTPD.TestNanoHTTPD;
 import com.example.halong.myapplication.R;
 
 import org.greenrobot.eventbus.EventBus;
@@ -61,7 +61,7 @@ public class OkhttpActivity extends AppCompatActivity implements View.OnClickLis
         super.onStart();
         EventBus.getDefault().register(this);
         try {
-            TestService.getDefault().start();
+            TestNanoHTTPD.getDefault().start();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class OkhttpActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onStop() {
         EventBus.getDefault().unregister(this);
-        TestService.getDefault().stop();
+        TestNanoHTTPD.getDefault().stop();
         super.onStop();
     }
 
@@ -132,7 +132,7 @@ public class OkhttpActivity extends AppCompatActivity implements View.OnClickLis
                 Map<String, String> params2 = new HashMap<>();
                 params2.put("key", "val");
                 params2.put("zh", "中文");
-                MyOkHttpUtil.get(TestService.URL, params2, new Callback() {
+                MyOkHttpUtil.get(TestNanoHTTPD.URL, params2, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         EventBus.getDefault().post(new EventMessage(EventMessage.text, e.getMessage()));
@@ -149,7 +149,7 @@ public class OkhttpActivity extends AppCompatActivity implements View.OnClickLis
                 Map<String, String> params3 = new HashMap<>();
                 params3.put("key", "val");
                 params3.put("zh", "中文");
-                MyOkHttpUtil.post(TestService.URL, params3, new Callback() {
+                MyOkHttpUtil.post(TestNanoHTTPD.URL, params3, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         EventBus.getDefault().post(new EventMessage(EventMessage.text, e.getMessage()));
@@ -164,7 +164,7 @@ public class OkhttpActivity extends AppCompatActivity implements View.OnClickLis
                 //post->String
             case R.id.button4:
                 String sting="adlsjkgljadg中文";
-                MyOkHttpUtil.post(TestService.URL, sting, new Callback() {
+                MyOkHttpUtil.post(TestNanoHTTPD.URL, sting, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         EventBus.getDefault().post(new EventMessage(EventMessage.text, e.getMessage()));
@@ -188,7 +188,7 @@ public class OkhttpActivity extends AppCompatActivity implements View.OnClickLis
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                MyOkHttpUtil.post(TestService.URL, file, new Callback() {
+                MyOkHttpUtil.post(TestNanoHTTPD.URL, file, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         EventBus.getDefault().post(new EventMessage(EventMessage.text, e.getMessage()));
@@ -219,7 +219,7 @@ public class OkhttpActivity extends AppCompatActivity implements View.OnClickLis
                 }
                 val.put("shj.txt",f);
                 files.put("kkk",val);
-                MyOkHttpUtil.post(TestService.URL, params, files, new Callback() {
+                MyOkHttpUtil.post(TestNanoHTTPD.URL, params, files, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         EventBus.getDefault().post(new EventMessage(EventMessage.text, e.getMessage()));

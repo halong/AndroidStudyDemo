@@ -55,27 +55,12 @@ public class NanohttpdActivity extends AppCompatActivity implements View.OnClick
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        EventBus.getDefault().register(this);
     }
 
     @Override
     protected void onStop() {
         MyNanoHTTPD.getDefault().stop();
-        EventBus.getDefault().unregister(this);
         super.onStop();
-    }
-
-    @Subscribe
-    public void onMessageEvent(EventMessage message) {
-        switch (message.flag) {
-            case EventMessage.text:
-
-                break;
-            case EventMessage.image:
-                break;
-        }
-
     }
 
     private void initView() {

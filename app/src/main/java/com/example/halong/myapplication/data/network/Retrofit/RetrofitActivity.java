@@ -9,9 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.halong.myapplication.R;
-import com.example.halong.myapplication.data.network.NanoHTTPD.MyNanoHTTPD;
-import com.example.halong.myapplication.data.network.NanoHTTPD.TestService;
-import com.google.gson.GsonBuilder;
+import com.example.halong.myapplication.data.network.NanoHTTPD.TestNanoHTTPD;
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +18,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import okhttp3.MediaType;
@@ -29,7 +27,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.FieldMap;
@@ -38,12 +35,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
-import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
-import rx.Observable;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class RetrofitActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -82,19 +74,18 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
         initView();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(MyNanoHTTPD.URL)
+                .baseUrl(TestNanoHTTPD.URL)
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
         apiService = retrofit.create(ApiService.class);
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         try {
-            MyNanoHTTPD.getDefault().start();
-            TestService.getDefault().start();
+            TestNanoHTTPD.getDefault().start();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,8 +93,7 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onStop() {
-        MyNanoHTTPD.getDefault().stop();
-        TestService.getDefault().stop();
+        TestNanoHTTPD.getDefault().stop();
         super.onStop();
     }
 
@@ -132,27 +122,23 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button1:
-                Map<String, String> params = new HashMap<>();
-                params.put("param", "请求JSON");
-
-                apiService.get(params).enqueue(new Callback<List<User>>() {
+            case R.id.button1://测试GET请求 下载JSON
+                apiService.get().enqueue(new Callback<User>() {
                     @Override
-                    public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                        mText.setText(response.body().get(0).getName());
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        mText.setText(new Gson().toJson(response.body()));
                     }
 
                     @Override
-                    public void onFailure(Call<List<User>> call, Throwable t) {
-                        mText.setText("错误");
+                    public void onFailure(Call<User> call, Throwable t) {
+                        mText.setText(t.getMessage());
                     }
                 });
                 break;
-            case R.id.button2:
-                Map<String, String> params2 = new HashMap<>();
-                params2.put("param", "请求JSON");
 
-                apiService.getResponseBody(params2).enqueue(new Callback<ResponseBody>() {
+            case R.id.button2://测试POST请求 下载文件
+                Map<String, String> params2 = new HashMap<>();
+                apiService.post(params2).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         try {
@@ -168,15 +154,23 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
                     }
                 });
                 break;
-            case R.id.button3: //测试retrofit的POST请求
-                Map<String, String> params3 = new HashMap<>();
-                params3.put("param", "请求JSON");
 
-                retrofit.newBuilder()
-                        .baseUrl(TestService.URL) //更换baseUrl
-                        .build()
-                        .create(ApiService.class)
-                        .post(params3)
+
+            case R.id.button3: //测试Retrofit的POST 上传文件
+                final File file3 = new File(Environment.getExternalStorageDirectory(), "uu.txt");
+                try {
+                    OutputStream outputStream3 = new FileOutputStream(file3);
+                    outputStream3.write("我是文本文件我是文本文件我是文本文件我是文本文件".getBytes());
+                    outputStream3.flush();
+                    outputStream3.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                RequestBody body3 = RequestBody.create(MediaType.parse("plain/text"), file3);
+                apiService.post(body3)
                         .enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -193,13 +187,14 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
                             }
                         });
                 break;
-            case R.id.button4://测试retrofit的PSOT form请求
+
+            case R.id.button4://测试retrofit的POST Form
                 Map<String, Map<String, File>> params4 = new HashMap<>();
                 Map<String, File> f = new HashMap<>();
                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "sahd.txt");
                 try {
                     OutputStream outputStream = new FileOutputStream(file);
-                    outputStream.write("asjdg巴萨和地方".getBytes());
+                    outputStream.write("我是中文字符lalalala".getBytes());
                     outputStream.close();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -208,11 +203,7 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
                 }
                 f.put("uu.txt", file);
                 params4.put("form", f);
-                retrofit.newBuilder()
-                        .baseUrl(TestService.URL)
-                        .build()
-                        .create(ApiService.class)
-                        .postForm(params4)
+                apiService.postForm(params4)
                         .enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -229,42 +220,10 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
                             }
                         });
                 break;
-            case R.id.button5:
+            case R.id.button5://测试Retrofit的GET请求
                 Map<String, String> params5 = new HashMap<>();
-                params5.put("param", "请求JSON");
-                apiService.getWithRx(params5)  //得到Observable<ResponseBody>
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Observer<ResponseBody>() {
-                            @Override
-                            public void onCompleted() {
-
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-                                mText.setText(e.getMessage());
-                            }
-
-                            @Override
-                            public void onNext(ResponseBody responseBody) {
-                                try {
-                                    mText.setText(responseBody.string());
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-
-                break;
-
-            case R.id.button6:// post requestbody
-                RequestBody body6 = RequestBody.create(MediaType.parse("text/plain"), "撒地方dsbf");
-                retrofit.newBuilder()
-                        .baseUrl(TestService.URL) //更换baseUrl
-                        .build()
-                        .create(ApiService.class)
-                        .post(body6)
+                params5.put("params", "中文请求");
+                apiService.get(params5)
                         .enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -281,47 +240,20 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
                             }
                         });
                 break;
-            case R.id.button7:
-                retrofit.newBuilder()
-                        .baseUrl("https://api.douban.com/v2/") //更换baseUrl
-                        .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
-                        .build()
-                        .create(ApiService.class)
-                        .getSearchBook("金瓶梅", null, 0, 1)
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Observer<Book>() {
-                            @Override
-                            public void onCompleted() {
 
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-                                mText.setText(e.getMessage());
-                            }
-
-                            @Override
-                            public void onNext(Book book) {
-                                mText.setText(book.getBooks().get(0).getAuthor().get(0));
-
-                            }
-                        });
+            case R.id.button6:
                 break;
-            case R.id.button8:
 
-                break;
         }
     }
 
 
     interface ApiService {
         @GET("/")
-            //path若不添加子路径，则加"/" ;静态添加，直接在/后面添加; 动态添加,先加{mpath},再在参数中使用@path添加
-        Call<List<User>> get(@QueryMap Map<String, String> params);
+        Call<User> get();
 
         @GET("/")
-        Call<ResponseBody> getResponseBody(@QueryMap Map<String, String> params);
+        Call<ResponseBody> get(@QueryMap Map<String, String> params);
 
         @FormUrlEncoded//POST需要编码
         @POST("/")
@@ -334,17 +266,5 @@ public class RetrofitActivity extends AppCompatActivity implements View.OnClickL
         @Multipart
         @POST("/")
         Call<ResponseBody> postForm(@PartMap Map<String, Map<String, File>> files);
-
-
-        @GET("/")
-        Observable<ResponseBody> getWithRx(@QueryMap Map<String, String> params);
-
-        @GET("book/search")
-        Observable<Book> getSearchBook(@Query("q") String name,
-                                       @Query("tag") String tag,
-                                       @Query("start") int start,
-                                       @Query("count") int count);
-
-
     }
 }

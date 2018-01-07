@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.halong.myapplication.R;
@@ -22,8 +23,9 @@ public class ActionBarDrawerToggleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置全屏
 
         //设置状态栏透明  另在布局文件中需要设置fitsSystemWindows="ture"属性
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -43,7 +45,7 @@ public class ActionBarDrawerToggleActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer1, mToolbar, 0, 0);
         mDrawer1.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
+        actionBarDrawerToggle.syncState();//同步
     }
 
     private void setSystemBarTransparent() {

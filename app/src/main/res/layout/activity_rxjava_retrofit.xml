@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".data.network.Retrofit.RetrofitActivity">
+    tools:context="com.example.halong.myapplication.data.network.RxJavaRetrofit.RxjavaRetrofitActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,20 +12,23 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="300dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100" />
+
                 <TextView
                     android:id="@+id/text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/iamge"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -34,6 +37,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,62 +47,28 @@
                     android:id="@+id/button1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:text="测试Retrofit的GET请求 下载JSON"/>
+                    android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:text="测试Retrofit的POST请求 下载文件"/>
+                    android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/button3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:text="测试Retrofit的POST 上传文件"/>
+                    android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:text="测试Retrofit的POST form"/>
-
-
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:text="测试Retrofit的GET请求"/>
-
-                <Button
-                    android:id="@+id/button6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:text=""/>
-
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:textAllCaps="false" />
-
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:text=""/>
-
 
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
