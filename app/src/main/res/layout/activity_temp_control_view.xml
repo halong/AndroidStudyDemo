@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.halong.myapplication.ui.TempControlView.TempControlViewActivity">
+    tools:context="com.example.halong.application.ui.TempControlView.TempControlViewActivity">
 
-    <com.example.halong.myapplication.ui.TempControlView.TempControlView
+    <com.example.halong.application.ui.TempControlView.TempControlView
         android:id="@+id/tempControlView"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
